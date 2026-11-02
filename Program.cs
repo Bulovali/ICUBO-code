@@ -568,13 +568,15 @@ namespace PSO_Based_Oversampling
                         {
                             string veri = allData[i][j].ToString("F2");
                             last_data[sayac_satir][sutun_sayac] = veri.ToString().Replace(",", ".");
+                            sw.Write(allData[i][j] + "\t");
                         }
                         else
                         {
                             last_data[sayac_satir][sutun_sayac] = allData[i][j].ToString();
+                            sw.Write(allData[i][j]);
                         }
                         Console.Write(allData[i][j] + "\t");
-                        sw.Write(allData[i][j] + "\t");
+                        
                         sutun_sayac++;
                     }
                     sayac_satir++;

@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,14 +13,15 @@ namespace PSO_Based_Oversampling
     {
         static void Main(string[] args)
         {
+            string file_path = "D:\\Imbalanced datasets\\ecoli-0-1-3-7_vs_2-6-5-fold\\";
             int numClusters = 4;
             PSOcluster psoCluster = new PSOcluster(numClusters, numberOfParticles: 30, maxIterations: 100, inertiaWeight: 0.729, cognitiveCoefficient: 1.49445, socialCoefficient: 1.49445, randomSeed: 42);
             Minority_class minorityClass = new Minority_class();
             Show_Data show = new Show_Data();
-            string[] _file = { "22. abalone19" };
-            for (int file_index = 0; file_index < _file.Length; file_index++)
+            string[] _file = { "yeast-1-4-5-8_vs_7-5-1tra", "yeast-1-4-5-8_vs_7-5-2tra", "yeast-1-4-5-8_vs_7-5-3tra", "yeast-1-4-5-8_vs_7-5-4tra", "yeast-1-4-5-8_vs_7-5-5tra" };
+            for (int cont_file = 0; cont_file < _file.Length; cont_file++)
             {
-                string _filename = "D:\\" + _file[file_index];
+                string _filename = file_path + _file[cont_file];
                 int _numofatr = 0;
                 int _numofsam = 0;                
                 double[][] xValues;
@@ -101,7 +102,7 @@ namespace PSO_Based_Oversampling
 
                 int _numofclass = _classvalue.Count;
 
-                Console.WriteLine("Dataset: " + _file[file_index]);
+                Console.WriteLine("Dataset: " + _file[cont_file]);
 
                 Console.WriteLine("Number of classes: " + _numofclass);
 
@@ -423,8 +424,7 @@ namespace PSO_Based_Oversampling
                             for (int i = 0; i < ICUValues.Count; i++)
                             {
                                 totalICU += ICUValues[i];
-                            }
-                            
+                            }                           
                             List<double> clusterPercentage = new List<double>();
                             for (int i = 0; i < ICUValues.Count; i++)
                             {
@@ -584,7 +584,7 @@ namespace PSO_Based_Oversampling
                     sw.WriteLine();
                 }                
                 sw.Close();
-               
+                               
             }// for file
             Console.WriteLine("\nFinished.");
             Console.ReadLine();

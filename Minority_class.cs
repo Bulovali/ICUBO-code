@@ -23,7 +23,7 @@ namespace PSO_Based_Oversampling
                 Console.WriteLine("Sum_" + k + "\t" + means_big[k] + "\t");
             }
             return means_big;
-        }// best_cluster_minority
+        }
         public List<double> Get_minor_samples(double[] data, int[] clustering, int numClusters, int inedx_max_minor_samples, int decimals)
         {
             List<double> data_minor = new List<double>();
